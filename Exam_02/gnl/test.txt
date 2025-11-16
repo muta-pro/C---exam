@@ -1,0 +1,3 @@
+line one has hello
+line two has hello and hello
+line three has no h-e-l-l-o
