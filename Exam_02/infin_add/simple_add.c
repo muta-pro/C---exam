@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:05:35 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/16 20:14:52 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/16 20:55:54 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
  */
 char	*add(const char *a, const char *b)
 {
-	int		k;
+	int		idx;
 	int		i;
 	int		carry;
 	int		len;
@@ -35,7 +35,7 @@ char	*add(const char *a, const char *b)
 
 	len = strlen(a);
 	buf = calloc(len + 2, sizeof(char));
-	k = len;
+	idx = len;
 	carry = 0;
 	i = len - 1;
 	while (i >= 0)
@@ -45,10 +45,10 @@ char	*add(const char *a, const char *b)
 		sum = digit1 + digit2 + carry;
 		carry = sum / 10;
 		i--;
-		buf[k--] = sum % 10 + '0';
+		buf[idx--] = sum % 10 + '0';
 	}
 	if (carry > 0)
-		buf[k] = carry + '0';
+		buf[idx] = carry + '0';
 	else
 	{
 		result = strdup(buf + 1);
