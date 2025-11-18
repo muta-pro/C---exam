@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 17:05:35 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/16 20:55:54 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/18 00:42:18 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-/*focus on right to left with carry logic
+/*focus on right to left with carry logic: 
+		process nums digit by digit;
  - add two positive equal-len numbers
  probem suddivision: 
  1. turn char into number ASCII math

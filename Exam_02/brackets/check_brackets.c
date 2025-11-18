@@ -6,10 +6,33 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 07:04:50 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:52:55 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-//STACK-BASED balanced parentheses check
+/*STACK-BASED balanced parentheses check
+Every time we see an opening bracket, we push it on the stack.
+
+Every time we see a closing bracket, we:
+
+Check if the stack is not empty.
+
+Check if the top of the stack is the corresponding opening bracket.
+
+If yes → pop it.
+
+If no → invalid.
+
+At the end, stack must be empty → all brackets matched.
+Invariant (the “always true” rule)
+
+While scanning the string:
+
+The stack always contains exactly the opening brackets
+ we have seen and not yet closed, in correct nesting order.
+
+If you ever break that invariant 
+(e.g. closing bracket that doesn’t match, or trying to close when stack is empty),
+ you return error.*/
 #include <stdio.h>
 
 #define MAX_LEN 1000

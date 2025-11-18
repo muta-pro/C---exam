@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 19:23:53 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/17 20:30:13 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/18 15:53:01 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -71,3 +71,7 @@ int	main(int argc, char *argv[])
 	printf("contains only ()");
 	return (0);
 }
+
+//count characters in a string using recursion
+
+//count how many '(' are in the string using recursion
