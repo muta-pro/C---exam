@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:44:41 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 10:35:49 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/19 20:42:26 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -62,7 +62,7 @@ int	check_html(char *str)
 			i++;
 	}
 	return (top == -1);
- }
+}
 
 int	main(int argc, char *argv[])
 {
