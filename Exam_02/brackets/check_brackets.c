@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 07:04:50 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/18 09:26:40 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 //STACK-BASED balanced parentheses check
@@ -37,9 +37,9 @@ int	check_brackets(char *s)
 				return (0);
 			stack[++top] = s[i];
 		}
-		else if (s[i] == '(' || s[i] == ']' || s[i] == '}')
+		else if (s[i] == ')' || s[i] == ']' || s[i] == '}')
 		{
-			if (top == -1)
+			if (top == -1) //empty stack
 				return (0);
 			if (!is_matching(stack[top], s[i]))
 				return (0);
@@ -47,7 +47,7 @@ int	check_brackets(char *s)
 		}
 		i++;
 	}
-	return (top == -1);
+	return (top == -1); //valid str
 }
 
 int	main(int argc, char *argv[])
