@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:54:03 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 15:52:53 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:17:34 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -15,22 +15,18 @@ stack = array used as a stack for opened brackets
 top  = index of top element in stack (-1 means empty)
 */
 
-int	is_matching(char open, char closed)
+int	is_matching(char open, char close)
 {
-	if (open == '(' && closed == ')')
-		return (1);
-	if (open == '{' && closed == '}')
-		return (1);
-	if (open == '[' && closed == ']')
-		return (1);
-	return (0);
+	return ((open == '(' && close == ')')
+		|| (open == '{' && close == '}')
+		|| (open == '[' && close == ']'));
 }
 
 int	check_br(const char *str, int i, char *stack, int top)
 {
 	char	c;
 
-	c = str[i]; 
+	c = str[i];
 	if (c == '\0')
 		return (top == -1);
 	if (c == '(' || c == '[' || c == '{')
