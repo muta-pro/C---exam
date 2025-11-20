@@ -1,0 +1,56 @@
+ex;
+
+1) Write small recursive functions: factoral, Fibonacci, permutations, subsets
+2) Write a balanced parenthesis checker with a stack
+3) Generalise the idea to tags/html/
+4) Do backtracking problem :
+introduce backtracking with a very simple problem (like “generate all binary strings of length n”), before we touch permutations / rip / n-queen. n_queen or permutatoins.
+
+When you are comfortable with these, we move to:
+
+➡️ recursive parenthesis validator
+➡️ mixed bracket validator
+➡️ backtracking: generate all balanced parentheses
+➡️ rip exercise (remove invalid parentheses)
+
+Step 1 idea: Learn to check simple structures with counters or a stack.
+Step 2 idea: Use recursion/backtracking to explore all valid structures (permutations, subsets, valid parenthesis removals, queens placements, etc.).
+
+🎯 balanced parentheses (you already started)
+🎯 balanced mixed brackets
+🎯 recursion on strings
+🎯 backtracking logic (needed for N-Queen, 		permutations, powerset)
+🎯 generating all possible valid variations (RIP exercise)
+
+++++++++master BACKTRACKING and RECURSIVE search on strings.
+
+Once you learn:
+
+recursion
+
+backtracking //DFS search
+
+stack simulation
+
+Then all exercises become easy.
+===============================
+==Recursion & Backtracking
+
+n_queen, permutations, powerset, rip are all:
+
+“Explore all possibilities in a tree of choices, but prune invalid paths.”
+Recursively building partial solutions.
+
+Checking if a partial solution is “valid” (like balanced).
+
+Exploring all possibilities (backtracking).
+
+==Stack-like reasoning / balanced structures
+
+brackets, rip, html-brackets:
+
+“Use a stack (or the call stack) to match opening and closing things.”
+
+==Working with strings as data structures
+
+All of them treat strings not as ‘text’, but as structured data or states that you transform (add, validate, generate variants).

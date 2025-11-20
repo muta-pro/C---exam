@@ -6,25 +6,25 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:54:03 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 08:10:02 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:17:34 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
+/*helper: check if an opening and closing bracket match
+stack = array used as a stack for opened brackets
+top  = index of top element in stack (-1 means empty)
+*/
 
-int is_matching(char open, char closed)
+int	is_matching(char open, char close)
 {
-	if (open == '(' && closed == ')')
-		return (1);
-	if (open == '{' && closed == '}')
-		return (1);
-	if (open == '[' && closed == ']')
-		return (1);
-	return (0);
+	return ((open == '(' && close == ')')
+		|| (open == '{' && close == '}')
+		|| (open == '[' && close == ']'));
 }
 
-int check_br(const char *str, int i, char *stack, int top)
+int	check_br(const char *str, int i, char *stack, int top)
 {
-	char c;
+	char	c;
 
 	c = str[i];
 	if (c == '\0')
@@ -42,11 +42,11 @@ int check_br(const char *str, int i, char *stack, int top)
 		return (check_br(str, i + 1, stack, top));
 	}
 	return (check_br(str, i + i, stack, top));
-
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	char stack[1024];
+	char	stack[1024];
 
 	if (argc != 2)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 21:56:53 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/17 22:01:23 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/20 11:46:43 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -15,8 +15,8 @@ void	count(int n)
 {
 	if (n == 0)
 		return ;
-	count(n - 1);
 	printf("%d\n", n);
+	count(n - 1);
 }
 
 int	main(void)
