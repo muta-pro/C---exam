@@ -5,36 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/18 10:20:47 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/18 10:45:58 by imutavdz         ###   ########.fr       */
+/*   Created: 2025/11/21 01:47:23 by imutavdz          #+#    #+#             */
+/*   Updated: 2025/11/21 02:03:20 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*choose, explore, backtrack
-pick and move
-decision tree alg*/
-
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-void	powerset(char *str, char *subset, int start, int sub_len)
+void print_sub(int *sub, int len)
 {
-	int	i;
+	int i;
 
-	subset[sub_len] = '\0';
-	printf("%s", subset);
-	i = start;
-	while (str[i])
+	i = 0;
+	while (i < len)
 	{
-		subset[sub_len] = str[i];
-		powerset(str, subset, i + 1, sub_len + 1);
+		printf("%d\n", sub[i]);
+		if (i < len - 1)
+			printf(" ");
 		i++;
 	}
+	printf("\n");
 }
 
-int	main()
+void	solve(int *set, int set_len, int *subset,
+	int sub_len, int idx, int curr_sum, int target)
 {
-	char	data[] = "ABC";
-	char	buf[10];
+	if (idx == set_len)
+	{
+		if (curr_sum == target)
+			print_sub(subset, sub_len);
+		return ;
+	}
+	subset[sub_len] = set[idx];
+	solve(set, set_len, subset, sub_len, idx + 1, curr_sum, target);
+}
 
-	powerset(data, buf, 0, 0);
+int main(int argc, char **argv)
+{
+	int n;
+	int *set;
+	int *subset_b;
+	int set_len;
+	int i;
+
+	if (argc < 2)
+		return (0);
+	n = atoi(argv[1]);
+	set_len = argc - 2;
+	if (set_len < 0)
+		set_len = 0;
+	set = malloc(sizeof(int) * set_len);
+	if (!set && set_len > 0)
+		return (1);
+	subset_b = malloc(sizeof(int) * set_len);
+	if (!subset_b && set_len > 0)
+	{
+		free(set);
+		return(1);
+	}
+	i = 0;
+	while (i < set_len)
+	{
+		set[i] = atoi(argv[i + 2]);
+		i++;
+	}
+	solve(set, set_len, subset_b, 0, 0, 0, n);
+	free(set);
+	free(subset_b);
 	return (0);
 }
