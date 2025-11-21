@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:54:03 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/20 21:17:34 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/21 12:51:22 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -41,7 +41,7 @@ int	check_br(const char *str, int i, char *stack, int top)
 		top--;
 		return (check_br(str, i + 1, stack, top));
 	}
-	return (check_br(str, i + i, stack, top));
+	return (check_br(str, i + 1, stack, top));
 }
 
 int	main(int argc, char **argv)

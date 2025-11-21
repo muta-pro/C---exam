@@ -6,14 +6,14 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 01:15:26 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/21 02:42:15 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/21 10:27:25 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 
-void permute_bool_rec(const char *str, int n, int pos, int used[], char out[])
+void	permute_bool_rec(const char *str, int n, int pos, int used[], char out[])
 {
-	int i;
+	int	i;
 
 	if (pos == n)
 	{
@@ -33,18 +33,18 @@ void permute_bool_rec(const char *str, int n, int pos, int used[], char out[])
 		}
 		i++;
 	}
-
 }
 
-int main()
+int	main()
 {
-	const char str[] = "abc";
-	int used[3] = {0, 0, 0};
-	char out[4];
+	const char	str[] = "abc";
+	int			used[3] = {0, 0, 0};
+	char		out[4];
 
 	permute_bool_rec(str, 3, 0, used, out);
 	return (0);
 }
+
 //backtracking pattern
 
 //void backtrack(State state, int step)

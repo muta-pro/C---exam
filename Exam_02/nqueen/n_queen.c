@@ -6,16 +6,16 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/21 02:25:28 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/21 11:38:59 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 
-void print_solution(int *board, int n)
+void	print_solution(int *board, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < n)
@@ -25,12 +25,12 @@ void print_solution(int *board, int n)
 	}
 	printf("\n");
 }
-int is_safe(int *board, int col, int row)
+int	is_safe(int *board, int col, int row)
 {
-	int prev_row;
-	int i;
-	int dist_x;
-	int dist_y;
+	int	prev_row;
+	int	i;
+	int	dist_x;
+	int	dist_y;
 
 	i = 0;
 	while (i < col)
@@ -46,9 +46,9 @@ int is_safe(int *board, int col, int row)
 	}
 	return (1);
 }
-void solve(int *board, int n, int col)
+void	solve(int *board, int n, int col)
 {
-	int row;
+	int	row;
 
 	if (col == n)
 	{
@@ -67,10 +67,10 @@ void solve(int *board, int n, int col)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int n;
-	int *board;
+	int	n;
+	int	*board;
 
 	if (argc != 2)
 		return (0);
