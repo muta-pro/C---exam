@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/21 11:38:59 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/23 19:37:18 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -20,7 +20,7 @@ void	print_solution(int *board, int n)
 	i = 0;
 	while (i < n)
 	{
-		printf("%d\n", board[i]);
+		printf("%d", board[i]);
 		i++;
 	}
 	printf("\n");
