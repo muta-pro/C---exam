@@ -6,11 +6,12 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:01:30 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/21 09:49:48 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/23 18:28:57 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 static void	count_removals(const char *s, int *left_rem, int *right_rem)
 {
@@ -37,16 +38,16 @@ static void	count_removals(const char *s, int *left_rem, int *right_rem)
 	*left_rem = open;
 }
 
-static void	backtrack(const char *s, int i, char *out,
-	int left_rem, int right_rem, int balance, int len)
+static void	backtrack(const char *s, int i, char *out, int pos,
+	int left_rem, int right_rem, int still_open, int len)
 {
 	char	c;
 
 	if (i == len)
 	{
-		if (left_rem == 0 && right_rem == 0 && balance == 0)
+		if (left_rem == 0 && right_rem == 0 && still_open == 0)
 		{
-			out[len] = '\0';
+			out[pos] = '\0';
 			puts(out);
 		}
 		return ;
@@ -55,30 +56,24 @@ static void	backtrack(const char *s, int i, char *out,
 	if (c == '(')
 	{
 		if (left_rem > 0)
-		{
-			out[i] = ' ';
-			backtrack(s, i + 1, out, left_rem - 1, right_rem, balance, len);
-		}
-		out[i] = '(';
-		backtrack(s, i + 1, out, left_rem, right_rem, balance + 1, len);
+			backtrack(s, i + 1, out, pos, left_rem - 1, right_rem, still_open, len);
+		out[pos] = '(';
+		backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open + 1, len);
 	}
 	else if (c == ')')
 	{
 		if (right_rem > 0)
+			backtrack(s, i + 1, out, pos, left_rem, right_rem - 1, still_open, len);
+		if (still_open > 0)
 		{
-			out[i] = ' ';
-			backtrack(s, i + 1, out, left_rem, right_rem - 1, balance, len);
-		}
-		if (balance > 0)
-		{
-			out[i] = ')';
-			backtrack(s, i, out, left_rem, right_rem, balance - 1, len);
+			out[pos] = ')';
+			backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open - 1, len);
 		}
 	}
 	else
 	{
-		out[i] = c;
-		backtrack(s, i + 1, out, left_rem, right_rem, balance, len);
+		out[pos] = c;
+		backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open, len);
 	}
 }
 
@@ -88,13 +83,17 @@ int	main(int argc, char **argv)
 	int			len;
 	int			left_rem;
 	int			right_rem;
-	char		out[len + 1];
+	char		*out;
 
 	if (argc != 2)
 		return (1);
 	s = argv[1];
 	len = (int)strlen(s);
+	out = malloc(len + 1);
+	if (!out)
+		return (1);
 	count_removals(s, &left_rem, &right_rem);
-	backtrack(s, 0, out, left_rem, right_rem, 0, len);
+	backtrack(s, 0, out, 0, left_rem, right_rem, 0, len);
+	free(out);
 	return (0);
 }
