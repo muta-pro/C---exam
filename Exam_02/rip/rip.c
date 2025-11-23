@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 09:01:30 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/23 18:28:57 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/23 18:34:27 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -38,7 +38,7 @@ static void	count_removals(const char *s, int *left_rem, int *right_rem)
 	*left_rem = open;
 }
 
-static void	backtrack(const char *s, int i, char *out, int pos,
+static void	backtrack(const char *s, int i, char *out,
 	int left_rem, int right_rem, int still_open, int len)
 {
 	char	c;
@@ -47,7 +47,7 @@ static void	backtrack(const char *s, int i, char *out, int pos,
 	{
 		if (left_rem == 0 && right_rem == 0 && still_open == 0)
 		{
-			out[pos] = '\0';
+			out[len] = '\0';
 			puts(out);
 		}
 		return ;
@@ -56,24 +56,30 @@ static void	backtrack(const char *s, int i, char *out, int pos,
 	if (c == '(')
 	{
 		if (left_rem > 0)
-			backtrack(s, i + 1, out, pos, left_rem - 1, right_rem, still_open, len);
-		out[pos] = '(';
-		backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open + 1, len);
+		{
+			out[i] = ' ';
+			backtrack(s, i + 1, out, left_rem - 1, right_rem, still_open, len);
+		}
+		out[i] = '(';
+		backtrack(s, i + 1, out, left_rem, right_rem, still_open + 1, len);
 	}
 	else if (c == ')')
 	{
 		if (right_rem > 0)
-			backtrack(s, i + 1, out, pos, left_rem, right_rem - 1, still_open, len);
+		{
+			out[i] = ' ';
+			backtrack(s, i + 1, out, left_rem, right_rem - 1, still_open, len);
+		}
 		if (still_open > 0)
 		{
-			out[pos] = ')';
-			backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open - 1, len);
+			out[i] = ')';
+			backtrack(s, i + 1, out, left_rem, right_rem, still_open - 1, len);
 		}
 	}
 	else
 	{
-		out[pos] = c;
-		backtrack(s, i + 1, out, pos + 1, left_rem, right_rem, still_open, len);
+		out[i] = c;
+		backtrack(s, i + 1, out, left_rem, right_rem, still_open, len);
 	}
 }
 
@@ -93,7 +99,7 @@ int	main(int argc, char **argv)
 	if (!out)
 		return (1);
 	count_removals(s, &left_rem, &right_rem);
-	backtrack(s, 0, out, 0, left_rem, right_rem, 0, len);
+	backtrack(s, 0, out, left_rem, right_rem, 0, len);
 	free(out);
 	return (0);
 }
