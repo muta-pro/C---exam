@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/23 19:37:18 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/24 18:24:44 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -23,29 +23,25 @@ void	print_solution(int *board, int n)
 		printf("%d", board[i]);
 		i++;
 	}
-	printf("\n");
+	printf("\n\n");
 }
+
 int	is_safe(int *board, int col, int row)
 {
-	int	prev_row;
 	int	i;
-	int	dist_x;
-	int	dist_y;
 
 	i = 0;
 	while (i < col)
 	{
-		prev_row = board[i];
-		if (prev_row == row)
+		if (board[i] == row)
 			return (0);
-		dist_x = col - i;
-		dist_y = row - prev_row;
-		if (dist_y == -dist_x)
+		if (abs(board[i] - row) == abs(i - col))
 			return (0);
 		i++;
 	}
 	return (1);
 }
+
 void	solve(int *board, int n, int col)
 {
 	int	row;

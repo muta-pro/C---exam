@@ -1,81 +1,92 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vezba.c                                            :+:      :+:    :+:   */
+/*   nqueen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/21 20:02:38 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/24 20:16:46 by imutavdz         ###   ########.fr       */
+/*   Created: 2025/11/24 14:35:03 by imutavdz          #+#    #+#             */
+/*   Updated: 2025/11/24 18:49:18 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
+#include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-static void	print_rows(int *board, int n)
+void	print_q(int *board, int n)
 {
-	int	col;
+	int	i;
 
-	col = 0;
-	while (col < n)
+	i = 0;
+	while (i < n)
 	{
-		printf("%d", board[col]);
-		col++;
+		if (i == n - 1)
+		{
+			printf("%d\n", board[i]);
+			return ;
+		}
+		printf("%d ", board[i]);
+		i++;
 	}
 	printf("\n");
 }
 
-int	is_safe(int *board, int x, int y)
+int	absolute(int x)
 {
-	int	i = 0;
-	int	dx;
-	int	dy;
-
-	while (i < x)
-	{
-		if (board[i] == y)
-			return (0);
-		dx = x - i;
-		dy = y - board[i];
-		if (dx == dy || dx == -dy)
-			return (0);
-		i++;
-	}
-	return (1);
+	if (x < 0)
+		x = x * -1;
+	return (x);
 }
 
-static void	put_queen_xy(int *board, int n, int x, int y)
+bool	is_safe(int *board, int x, int y)
 {
-	if (x == n)
+	int	i;
+
+	i = 0;
+	while (i < x)
 	{
-		print_rows(board, n);
+		if (board[i] == y || absolute(i - x) == absolute(board[i] - y))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
+void	put_queen_xy(int *board, int n, int x, int y)
+{
+	if (x >= n)
+	{
+		print_q(board, n);
 		return ;
 	}
-	if (y == n)
+	if (y >= n)
 		return ;
 	if (is_safe(board, x, y))
 	{
 		board[x] = y;
 		put_queen_xy(board, n, x + 1, 0);
 		board[x] = -1;
+		put_queen_xy(board, n, x, y + 1);
 	}
-	put_queen_xy(board, n, x, y + 1);
+	else
+		put_queen_xy(board, n, x, y + 1);
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	*board;
 	int	n;
+	int	i;
 
 	if (argc != 2)
-		return (0);
-	n = atoi(argv[1]);
-	if (n < 0)
-		return (0);
-	board = malloc(sizeof(int) * n);
-	if (!board)
 		return (1);
+	n = atoi(argv[1]);
+	if (n <= 3)
+	{
+		printf("\n");
+		return (0);
+	}
+	int	board[n];
 	i = 0;
 	while (i < n)
 	{
@@ -83,6 +94,5 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	put_queen_xy(board, n, 0, 0);
-	free(board);
 	return (0);
 }
