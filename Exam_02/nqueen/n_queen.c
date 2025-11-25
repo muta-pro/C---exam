@@ -6,77 +6,80 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 06:58:39 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/24 18:24:44 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/25 07:11:59 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdlib.h>
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
 
-void	print_solution(int *board, int n)
+static void	print_rows(int *board, int n)
 {
-	int	i;
+	int	col;
 
-	i = 0;
-	while (i < n)
+	col = 0;
+	while (col < n)
 	{
-		printf("%d", board[i]);
-		i++;
+		printf("%d", board[col]);
+		col++;
 	}
-	printf("\n\n");
+	printf("\n");
 }
 
-int	is_safe(int *board, int col, int row)
+int	is_safe(int *board, int x, int y)
 {
+	int	dx;
+	int	dy;
 	int	i;
 
 	i = 0;
-	while (i < col)
+	while (i < x)
 	{
-		if (board[i] == row)
+		if (board[i] == y)
 			return (0);
-		if (abs(board[i] - row) == abs(i - col))
+		dx = x - i;
+		dy = y - board[i];
+		if (dx == dy || dx == -dy)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-void	solve(int *board, int n, int col)
+static void	put_queen_xy(int *board, int n, int x, int y)
 {
-	int	row;
-
-	if (col == n)
+	if (x == n)
 	{
-		print_solution(board, n);
+		print_rows(board, n);
 		return ;
 	}
-	row = 0;
-	while (row < n)
+	while (y < n)
 	{
-		if (is_safe(board, col, row))
+		if (is_safe(board, x, y))
 		{
-			board[col] = row;
-			solve(board, n, col + 1);
+			board[x] = y;
+			put_queen_xy(board, n, x + 1, 0);
+			board[x] = -1;
 		}
-		row++;
+		y++;
 	}
 }
 
 int	main(int argc, char **argv)
 {
-	int	n;
+	int	i;
 	int	*board;
+	int	n;
 
 	if (argc != 2)
 		return (0);
 	n = atoi(argv[1]);
 	if (n < 0)
 		return (0);
-	board = calloc(n, sizeof(int));
+	board = malloc(sizeof(int) * n);
 	if (!board)
 		return (1);
-	solve(board, n, 0);
+	i = 0;
+	put_queen_xy(board, n, 0, 0);
 	free(board);
 	return (0);
 }

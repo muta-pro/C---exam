@@ -6,83 +6,63 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 20:02:38 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/24 20:16:46 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/25 14:53:36 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
-static void	print_rows(int *board, int n)
+#define MAX_LEN 1024
+
+int	is_matching(char open, char close)
 {
-	int	col;
-
-	col = 0;
-	while (col < n)
-	{
-		printf("%d", board[col]);
-		col++;
-	}
-	printf("\n");
+	return ((open == '(' && close == ')')
+		|| (open == '{' && close == '}')
+		|| (open == '[' && close == ']'));
 }
 
-int	is_safe(int *board, int x, int y)
+int check_brackets(char *s, int i, int len, char *stack, int top)
 {
-	int	i = 0;
-	int	dx;
-	int	dy;
+	char c;
 
-	while (i < x)
-	{
-		if (board[i] == y)
-			return (0);
-		dx = x - i;
-		dy = y - board[i];
-		if (dx == dy || dx == -dy)
-			return (0);
-		i++;
-	}
-	return (1);
-}
+	c = s[i];
 
-static void	put_queen_xy(int *board, int n, int x, int y)
-{
-	if (x == n)
+	if (i == len)
+		return (top == -1);
+	if (c == '(' || c == '[' || c == '{')
 	{
-		print_rows(board, n);
-		return ;
+		if (top == MAX_LEN - 1)
+			return (0);
+		stack[++top] = c;
+		return (check_brackets(s, i + 1, len, stack, top));
 	}
-	if (y == n)
-		return ;
-	if (is_safe(board, x, y))
+	if (c == ')' || c == ']' || c == '}')
 	{
-		board[x] = y;
-		put_queen_xy(board, n, x + 1, 0);
-		board[x] = -1;
+		if (top < 0 || !is_matching(stack[top], c))
+			return (0);
+		top--;
+		return (check_brackets(s, i + 1, len, stack, top));
 	}
-	put_queen_xy(board, n, x, y + 1);
+	return (check_brackets(s, i + 1, len, stack, top));
 }
 
 int	main(int argc, char **argv)
 {
-	int	i;
-	int	*board;
-	int	n;
+	char	stack[MAX_LEN];
+	int		i;
+	int		len;
 
-	if (argc != 2)
+	if (argc < 2)
 		return (0);
-	n = atoi(argv[1]);
-	if (n < 0)
-		return (0);
-	board = malloc(sizeof(int) * n);
-	if (!board)
-		return (1);
-	i = 0;
-	while (i < n)
+	i = 1;
+	while (i < argc)
 	{
-		board[i] = -1;
+		len = (int)strlen(argv[i]);
+		if (check_brackets(argv[i], 0, len, stack, 0))
+			printf("OK\n");
+		else
+			printf("not\n");
 		i++;
 	}
-	put_queen_xy(board, n, 0, 0);
-	free(board);
 	return (0);
 }

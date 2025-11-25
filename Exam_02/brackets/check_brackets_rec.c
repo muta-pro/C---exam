@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 07:54:03 by imutavdz          #+#    #+#             */
-/*   Updated: 2025/11/21 12:51:22 by imutavdz         ###   ########.fr       */
+/*   Updated: 2025/11/25 15:31:58 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -38,8 +38,7 @@ int	check_br(const char *str, int i, char *stack, int top)
 	{
 		if (top < 0 || !is_matching(stack[top], c))
 			return (0);
-		top--;
-		return (check_br(str, i + 1, stack, top));
+		return (check_br(str, i + 1, stack, top - 1));
 	}
 	return (check_br(str, i + 1, stack, top));
 }
@@ -47,12 +46,17 @@ int	check_br(const char *str, int i, char *stack, int top)
 int	main(int argc, char **argv)
 {
 	char	stack[1024];
+	int	i = 1;
 
-	if (argc != 2)
-		return (1);
-	if (check_br(argv[1], 0, stack, -1))
-		printf("ok\n");
-	else
-		printf("not\n");
+	if (argc < 2)
+		printf("\n");
+	while (i < argc)
+	{
+		if (check_br(argv[i], 0, stack, -1))
+			printf("ok\n");
+		else
+			printf("not\n");
+		i++;
+	}
 	return (0);
 }
