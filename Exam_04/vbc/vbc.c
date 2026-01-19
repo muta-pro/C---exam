@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 14:12:27 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/01/19 19:47:37 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:52:55 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,16 +133,17 @@ static node	*parse_sum(char **s) //to add
 	return (l);
 }
 
-static node	*parse_expr(char *cur) //to fix
+static node	*parse_expr(char *s) //to fix
 {
+	char *p = s;
 	node	*ret;
 
-	ret = parse_sum(&cur);
+	ret = parse_sum(&p);
 	if (!ret)
 		return (NULL);
-	if (*cur)
+	if (*p)
 	{
-		unexpected(*cur);
+		unexpected(*p);
 		destroy_tree(ret);
 		return (NULL);
 	}
