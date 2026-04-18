@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 12:20:35 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/01/16 12:44:09 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/01/20 21:23:31 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 
 int	picoshell(char **cmds[])
 {
-	int		fds[2];
-	int		prev_fds;
 	pid_t	pid;
+	int		fds[2];
 	int		has_next;
+	int		prev_fds;
 	int		i;
 
 	prev_fds = -1;
