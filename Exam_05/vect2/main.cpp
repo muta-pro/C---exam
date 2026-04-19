@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 22:01:16 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/18 23:17:31 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/19 14:24:41 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -19,6 +19,8 @@ additoin
 subtraction
 scalar multiplication
 unary minus
+use of reference
+use of const
 */
 #include "vect2.hpp"
 #include <iostream>
@@ -49,6 +51,8 @@ int main()
 	v2 += v3;
 	v1 -= v2;
 	v2 = v3 + v3 * 2;
+	//symmetry in syntax requires non-member operators
+	//to support int on the left side we need also a non member overload
 	v2 = 3 * v2;
 	//chained expr
 	//-> compound assignment operators modify the object and return *this by reference.
@@ -60,10 +64,15 @@ int main()
 	std::cout << "v2:" << v2 << std::endl;
 	std::cout << "-v2:" << -v2 << std::endl;
 	//[] needs two versions - const and non const obj
+	//const correctness is part of interface design
 	std::cout << "v1[1]:" << v1[1] << std::endl;
 	v1[1] = 12;
+	//A member operator always receives the left operand as *this.
+	//here  << is not a member function because it's left operand is a stream
 	std::cout << "v1[1]:" << v1[1] << std::endl;
 	std::cout << "v3[1]:" << v3[1] << std::endl;
+	//if two objects have value semantics, 
+	//comparison usually compare their stored values, not identity(same obj mem)
 	std::cout << "v1 == v3" << (v1 == v3) << std::endl;
 	std::cout << "v1 == v1" << (v1 == v1) << std::endl;
 	std::cout << "v1 != v3" << (v1 != v3) << std::endl;
