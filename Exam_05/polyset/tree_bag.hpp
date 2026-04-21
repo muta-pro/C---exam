@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:28:40 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 14:40:05 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:41:37 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ class tree_bag : virtual public bag {
 			node *extract_tree();
 			void set_tree(node *);
 
-			virtual void insert();
+			virtual void insert(int);
 			virtual void insert(int *array, int size);
 			virtual void print() const;
 			virtual void clear();
 
 	private:
 		static void destroy_tree(node *);
-		static void *copy_node(node *);
 		static void print_node(node *);
+		static void *copy_node(node *);
 };
 
 #endif

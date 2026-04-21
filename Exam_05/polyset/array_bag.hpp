@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:28:27 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 14:32:17 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/21 15:13:34 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class array_bag : virtual public bag {
 			array_bag &operator=(const array_bag &assign);
 			~array_bag();
 
-			void insert();
+			void insert(int);
 			void insert(int *, int);
 			void print() const;
 			void clear();
