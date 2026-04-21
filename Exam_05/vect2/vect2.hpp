@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 22:15:30 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/19 12:36:48 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/21 10:01:43 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class vect2 { //container of two ints coordinates
 			vect2 &operator=(const vect2 &assign);
 			~vect2();
 
-			int		&operator[](int indx);
+			int			&operator[](int indx);
 			const int	&operator[](int indx) const;
 
 			vect2	&operator+=(const vect2 &other);
@@ -35,7 +35,7 @@ class vect2 { //container of two ints coordinates
 			vect2	&operator--();
 			vect2	operator--(int);
 
-			vect2 operator-() const;
+			vect2	operator-() const;
 	private:
 			int _v[2]; //operator [] becomes more direct
 };

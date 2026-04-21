@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 22:01:16 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/19 14:24:41 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/21 10:03:17 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -28,14 +28,14 @@ use of const
 int main()
 {
 	//obj construction
-	vect2 v2;
+	vect2 v1;
 	vect2 v2(1, 2);
 	const vect2 v3(v2);
 	//value semantics: vector as value not other - copy of indip obj/same content
 	vect2 v4 = v2;
 
 	std::cout << "v1:" << v1 << std::endl;
-	std::cout << "v1:" << "{" << v1[0] << ", " << v[1] << "}" << std::endl;
+	std::cout << "v1:" << "{" << v1[0] << ", " << v1[1] << "}" << std::endl;
 	std::cout << "v2:" << v2 << std::endl;
 	std::cout << "v3:" << v3 << std::endl;
 	std::cout << "v4:" << v4 << std::endl;
