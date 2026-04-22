@@ -1,0 +1,12 @@
+##SUBTYPE POLYMORPHISM - ABSTRACT CLASSES - INTERFACES - VIRTUAL BEHAVIOUR - INHERITANCE
+
+2 LAYERS : from inheritance to composition.
+
+1 - make 2 searchable concrete bags: array and binary tree;
+		reuse behaviour through wrapping not only inheritance. 
+
+2 - wrap a searchable bag and expose set behaviour - turn it into a set;
+	SET is a wrapper/adaptor around bag object, not a derived bag;
+
+	bag allows duplicetes / set not - same storage system but different insert logic - check value existence
+
