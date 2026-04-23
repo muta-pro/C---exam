@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/22 16:26:43 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/22 16:33:15 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/23 21:33:18 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ class Searchable_array_bag : public array_bag, public searchable_bag {
 			Searchable_array_bag &operator=(const Searchable_array_bag &assign);
 			~Searchable_array_bag();
 
-			virtual bool has(int) const;
+			virtual bool has(int value) const;
 	private:
 };
+
 #endif

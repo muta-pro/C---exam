@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 12:05:21 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/22 16:02:38 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/23 21:45:55 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int ac, char **argv) {
 	if (ac == 1)
 		return 1;
 	searchable_bag *t = new searchable_tree_bag;
-	searchable_bag *a = new searchabe_array_bag;
+	searchable_bag *a = new Searchable_array_bag;
 
 	for (int i = 1; i < ac; i++) {
 		t->insert(atoi(argv[i]));
@@ -35,7 +35,7 @@ int main(int ac, char **argv) {
 	}
 	t->clear();
 	a->clear();
-	const searchabe_array_bag tmp(static_cast<searchabe_array_bag &>(*a));
+	const Searchable_array_bag tmp(static_cast<Searchable_array_bag &>(*a));
 	tmp.print();
 	tmp.has(1);
 

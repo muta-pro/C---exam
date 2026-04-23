@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   array_bag.hpp                                      :+:      :+:    :+:   */
+/*   set.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/21 14:28:27 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/23 19:26:57 by imutavdz         ###   ########.fr       */
+/*   Created: 2026/04/23 21:20:18 by imutavdz          #+#    #+#             */
+/*   Updated: 2026/04/23 21:40:54 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ARR_BAG_HPP
-#define ARR_BAG_HPP
+#ifndef SET_HPP
+#define SET_HPP
 
-#include "bag.hpp"
+#include "searchable_bag.hpp"
 
-class array_bag : virtual public bag {
+class Set {
 	public:
-			array_bag();
-			array_bag(const array_bag &copy);
-			array_bag &operator=(const array_bag &assign);
-			~array_bag();
+			Set(searchable_bag &bag);
+			Set(const Set &copy);
+			Set &operator=(const Set &assign);
+			~Set();
 
-			void insert(int);
-			void insert(int *, int);
+			void insert(int value);
+			void insert(int *value, int count);
+			bool has(int value) const;
 			void print() const;
 			void clear();
-	protected:
-		int *data;
-		int size;
+			searchable_bag &get_bag() const; //main needs
+
+	private:
+		searchable_bag *_bag;
 };
 
 #endif
+
