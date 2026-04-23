@@ -10,3 +10,19 @@
 
 	bag allows duplicetes / set not - same storage system but different insert logic - check value existence
 
+
+SET: ADT
+
+std::unordered_set -> count() or find(); ->memebership - no duplicates
+
+bag abstract-class-interface: PURE VIRTUAL member functions -implementation inside derived classes
+	 - cannot instantiate bag
+diamond trap:
+	derived calsses - virtual inheritance : 
+	virtual public bag -> bag doesn't get multiplied, but once shared copy.
+
+multiple inheritance: two derived classes inherit from two classes = storage + search method to implement;
+
+polymorphism: main- uses base pointer to allocate new derived objects; method is called from each derived class at runtime->searchable_tree_bag::has(); ->virtual means runtime dispatch ->compiler looks at the obj type at runtime anc calls derived class member function, not the base class/interface.
+
+composition: set wraps searchable_bag - HAS-A relationship.
