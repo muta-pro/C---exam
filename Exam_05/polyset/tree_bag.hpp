@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:28:40 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/23 19:27:09 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/24 01:33:58 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class tree_bag : virtual public bag {
 	private:
 		static void destroy_tree(node *);
 		static void print_node(node *);
-		static void *copy_node(node *);
+		static node *copy_node(node *);
 };
 
 #endif

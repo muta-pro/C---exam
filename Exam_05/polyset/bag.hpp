@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 13:54:05 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 14:23:23 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/24 02:23:15 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 class bag {
 	public:
-		virtual void insert() = 0;
+		virtual ~bag() {}
+		virtual void insert(int) = 0;
 		virtual void insert(int *, int) = 0;
 		virtual void print() const = 0;
 		virtual void clear() = 0;

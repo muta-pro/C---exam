@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 21:20:18 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/23 21:40:54 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/24 02:12:35 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Set {
 			searchable_bag &get_bag() const; //main needs
 
 	private:
-		searchable_bag *_bag;
+		searchable_bag *_bag; //composition
 };
 
 #endif

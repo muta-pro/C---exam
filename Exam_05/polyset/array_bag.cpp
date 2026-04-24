@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:42:19 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 15:19:29 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/24 01:35:07 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void array_bag::insert(int *items, int count) {
 		new_data[i] = data[i];
 	}
 	for (int i = 0; i < count; i++) {
-		new_data[size + 1] = items[i];
+		new_data[size + i] = items[i];
 	}
 	if (data != NULL) {
 		delete[] data;
