@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 11:20:24 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/24 02:02:25 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/25 06:30:55 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "tree_bag.hpp"
 #include "searchable_bag.hpp"
 
-class Searchable_tree_bag
+class Searchable_tree_bag : public tree_bag, public searchable_bag
 {
 public:
     Searchable_tree_bag();

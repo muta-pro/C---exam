@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 21:32:29 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/24 01:39:06 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/25 06:33:13 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Searchable_array_bag::Searchable_array_bag(const Searchable_array_bag &copy)
 	: array_bag(copy) {}
 
 Searchable_array_bag &Searchable_array_bag::operator=(const Searchable_array_bag &assign) {
-	if (this != assign) {
+	if (this != &assign) {
 		array_bag::operator=(assign);
 	}
 	return *this;

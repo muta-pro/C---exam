@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 21:20:18 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/24 02:12:35 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/25 06:35:05 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 
 #include "searchable_bag.hpp"
 
-class Set {
+class set {
 	public:
-			Set(searchable_bag &bag);
-			Set(const Set &copy);
-			Set &operator=(const Set &assign);
-			~Set();
+			set(searchable_bag &bag);
+			set(const set &copy);
+			set &operator=(const set &assign);
+			~set();
 
 			void insert(int value);
 			void insert(int *value, int count);
 			bool has(int value) const;
 			void print() const;
 			void clear();
-			searchable_bag &get_bag() const; //main needs
+			const searchable_bag &get_bag() const; //main needs
 
 	private:
-		searchable_bag *_bag; //composition
+		searchable_bag& _bag; //composition
 };
 
 #endif

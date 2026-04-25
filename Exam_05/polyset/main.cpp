@@ -6,11 +6,12 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 12:05:21 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/23 22:02:44 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/25 06:35:35 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "searchable_array_bag.hpp"
+#include "searchable_tree_bag.hpp"
 #include "set.hpp"
 #include <cstdlib>
 #include <iostream>

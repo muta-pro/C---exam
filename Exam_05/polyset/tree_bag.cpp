@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:42:26 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/24 01:33:22 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/25 06:39:20 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,9 +101,10 @@ void tree_bag::destroy_tree(node *curr) {
 void tree_bag::print_node(node *curr) {
 	if (curr != NULL) {
 		print_node(curr->l);
+		if (curr != NULL)
+			std::cout << curr->value << " ";
+		print_node(curr->r);
 	}
-	std::cout << curr->value << " ";
-	print_node(curr->r);
 }
 
 tree_bag::node *tree_bag::copy_node(node *curr) {

@@ -26,3 +26,8 @@ multiple inheritance: two derived classes inherit from two classes = storage + s
 polymorphism: main- uses base pointer to allocate new derived objects; method is called from each derived class at runtime->searchable_tree_bag::has(); ->virtual means runtime dispatch ->compiler looks at the obj type at runtime anc calls derived class member function, not the base class/interface.
 
 composition: set wraps searchable_bag - HAS-A relationship.
+
+EXAM FIX POINTS:
+
+1 - tree_bag.hpp - > static node *copy_node(node*);
+2 - 
