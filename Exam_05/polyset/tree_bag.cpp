@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/21 14:42:26 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/25 06:39:20 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:11:27 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void tree_bag::insert(int item) {
 				else
 					curr = curr->l;
 			}
-			else if (item > curr->value) {
+			else {
 				if (curr->r == NULL) {
 					curr->r = new_node;
 					break ;

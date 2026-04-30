@@ -27,7 +27,6 @@ polymorphism: main- uses base pointer to allocate new derived objects; method is
 
 composition: set wraps searchable_bag - HAS-A relationship.
 
-EXAM FIX POINTS:
+concept: method overloading -> two insert methods
 
-1 - tree_bag.hpp - > static node *copy_node(node*);
-2 - 
+concept: dynamic dispatch - runtime polymorpgism

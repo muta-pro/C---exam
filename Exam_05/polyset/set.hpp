@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 21:20:18 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/25 06:35:05 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:16:28 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class set {
 			set(const set &copy);
 			set &operator=(const set &assign);
 			~set();
-
+			//method overloading - same name different param
 			void insert(int value);
 			void insert(int *value, int count);
 			bool has(int value) const;
@@ -30,7 +30,7 @@ class set {
 			const searchable_bag &get_bag() const; //main needs
 
 	private:
-		searchable_bag& _bag; //composition
+		searchable_bag& _bag; //composition - reference variable
 };
 
 #endif

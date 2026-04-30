@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/24 02:03:19 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/25 06:39:59 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:05:05 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool Searchable_tree_bag::has(int value) const {
 }
 
 bool Searchable_tree_bag::search_node(node *curr, int value) {
-	if (curr == nullptr)
+	if (curr == 0)
 		return false;
 	if (curr->value == value)
 		return true;

@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 21:41:03 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/25 06:35:00 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/30 19:16:21 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ set::set(searchable_bag& bag) : _bag(bag) {}
 set::set(const set& copy) : _bag(copy._bag) {}
 
 set &set::operator=(const set& assign) {
-	(void)assign;
-	return *this;
+	(void)assign; //references cannot be re-seated
+	return *this; //assignment _bag.assign can cause obj slicing
 }
 
 set::~set() {}
-
+//the wrapper - decorator design pattern***
 void set::insert(int value) {
 	if (!_bag.has(value))
 		_bag.insert(value);

@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/18 22:01:16 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 10:03:17 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/04/29 02:40:04 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*
@@ -66,16 +66,16 @@ int main()
 	//[] needs two versions - const and non const obj
 	//const correctness is part of interface design
 	std::cout << "v1[1]:" << v1[1] << std::endl;
-	v1[1] = 12;
+	v1[1] = 12; //v1._v[1] = 12 int& -> real storage assignment
 	//A member operator always receives the left operand as *this.
 	//here  << is not a member function because it's left operand is a stream
 	std::cout << "v1[1]:" << v1[1] << std::endl;
 	std::cout << "v3[1]:" << v3[1] << std::endl;
 	//if two objects have value semantics, 
 	//comparison usually compare their stored values, not identity(same obj mem)
-	std::cout << "v1 == v3" << (v1 == v3) << std::endl;
-	std::cout << "v1 == v1" << (v1 == v1) << std::endl;
-	std::cout << "v1 != v3" << (v1 != v3) << std::endl;
-	std::cout << "v1 != v1" << (v1 != v1) << std::endl;
+	std::cout << "v1 == v3 " << (v1 == v3) << std::endl;
+	std::cout << "v1 == v1 " << (v1 == v1) << std::endl;
+	std::cout << "v1 != v3 " << (v1 != v3) << std::endl;
+	std::cout << "v1 != v1 " << (v1 != v1) << std::endl;
 	return (0);
 }
