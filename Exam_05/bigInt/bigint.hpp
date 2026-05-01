@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/29 09:47:18 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/01 12:41:30 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ public:
 	~bigint();
 
 	bigint &operator+=(const bigint &other);
-	bigint operator+(const bigint &other) const;
 
 	bigint &operator++();
 	bigint operator++(int);
 //decimal digit shift
-	bigint &operator<<=(const int shift); 
-	bigint &operator>>=(const int shift);
-	bigint operator<<(const int shift) const;
-	bigint operator>>(const int shift) const;
+	bigint &operator<<=(const bigint &other); 
+	bigint &operator>>=(const bigint &other);
+	bigint operator<<(const bigint &other) const;
+	bigint operator>>(const bigint &other) const;
 	
 	bool operator==(const bigint &other) const;
 	
@@ -62,6 +61,8 @@ private:
 };
 //design split: display internal repres. in a correct way
 std::ostream &operator<<(std::ostream &out, const bigint &value);
+
+bigint operator+(const bigint &lhs, const bigint &rhs);
 
 
 

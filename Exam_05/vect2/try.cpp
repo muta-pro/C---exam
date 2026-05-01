@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 17:47:22 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/28 18:30:34 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/01 09:27:29 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ vect2 &vect2::operator*=(int scalar) {
 }
 
 vect2 &vect2::operator++() {
-	_v[0]++;
-	_v[1]++;
+	++_v[0];
+	++_v[1];
 	return *this;
-}
+} 
 
 vect2 vect2::operator++(int) {
 	vect2 t(*this);
@@ -76,8 +76,8 @@ vect2 vect2::operator++(int) {
 }
 
 vect2 &vect2::operator--() {
-	_v[0]++;
-	_v[1]++;
+	--_v[0];
+	--_v[1];
 	return *this;
 }
 
@@ -92,3 +92,37 @@ vect2 vect2::operator-() const {
 }
 
 
+std::ostream& operator<<(std::ostream &out, const vect2 &v) {
+	out << "{" << v[0] << ", " << v[1] << "}";
+	return out;  
+}
+
+vect2 operator+(const vect2 &lhs, const vect2 &rhs) {
+	vect2 res(lhs);
+	res += (rhs);
+	return res;
+}
+
+vect2 operator-(const vect2 &lhs, const vect2 &rhs) {
+	vect2 res(lhs);
+	res -= rhs;
+	return res;
+}
+
+vect2 operator*(const vect2 &v, int scalar) {
+	vect2 res(v);
+	res *= scalar;
+	return res;
+}
+
+vect2 operator*(int scalar, const vect2 &v) {
+	return v * scalar;
+}
+
+bool operator==(const vect2 &lhs, const vect2 &rhs) {
+	return (lhs[0] == rhs[0] && lhs[1] == rhs[1]);
+}
+
+bool operator!=(const vect2 &lhs, const vect2 &rhs) {
+	return !(lhs == rhs);
+}

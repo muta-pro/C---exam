@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/29 05:09:14 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/01 12:38:58 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 
 	std::cout << "(b << 10) + 42 = " << ((b << 10) + 42) << std::endl;
 	std::cout << "(d <<= 4) = " << (d <<= 4) << std::endl;
-	std::cout << "(d >>= 2) = " << (d >>= (const bigint)2) << std::endl;
+	std::cout << "(d >>= 2) = " << (d >>= 2) << std::endl;
 
 	std::cout << "a =" << a << std::endl;
 	std::cout << "d =" << d << std::endl;

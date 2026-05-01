@@ -30,3 +30,8 @@ composition: set wraps searchable_bag - HAS-A relationship.
 concept: method overloading -> two insert methods
 
 concept: dynamic dispatch - runtime polymorpgism
+
+Design pattern : how the obj is copied - assigned - compared (rule of 3)
+value semantics - copy-by-value -  obj represents a pure value;
+ - indipendent memories;
+ - equality based on state, not identity;

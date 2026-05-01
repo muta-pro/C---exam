@@ -6,21 +6,15 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/19 10:09:27 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/04/21 10:02:20 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/01 09:41:04 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vect2.hpp"
 
-vect2::vect2() {
-	_v[0] = 0;
-	_v[1] = 0;
-}
+vect2::vect2() : _v{0, 0} {}
 
-vect2::vect2(int x, int y) {
-	_v[0] = x;
-	_v[1] = y;
-}
+vect2::vect2(int x, int y) : _v{x, y} {}
 
 vect2::vect2(const vect2 &copy) {
 	_v[0] = copy._v[0];
