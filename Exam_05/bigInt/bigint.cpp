@@ -6,16 +6,17 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/01 16:16:48 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/03 19:41:35 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bigint.hpp"
-
+//start from the end and copy over on an empty string
+//because size_t is unsigned type we start at len and stop at i > 0
 static std::string reverse(const std::string &s) {
 	std::string res;
 	for (std::size_t i = s.length(); i > 0; i--) {
-		res += s[i - 1];
+		res += s[i - 1]; //-1 for right indx
 	}
 	return res;
 }
@@ -46,7 +47,7 @@ bigint &bigint::operator=(const bigint &assign) {
 }
 
 bigint::~bigint() {}
-
+//convert string to number
 std::size_t bigint::to_size_t() const {
 	std::size_t val = 0;
 	for (std::size_t i = 0; i < _n.length(); i++) {
@@ -54,11 +55,11 @@ std::size_t bigint::to_size_t() const {
 	}
 	return val;
 }
-
+//remove leading zeros
 void bigint::normalize() {
 	std::size_t pos = 0;
 	while (pos < _n.length() - 1 && _n[pos] == '0') {
-		pos++;
+		pos++;//keep at least one digit
 	}
 	if (pos > 0) {
 		_n = _n.substr(pos);
@@ -133,6 +134,7 @@ bigint &bigint::operator<<=(const bigint &shift) {
 		_n += '0';
 	}
 	return *this;
+}
 
 bigint bigint::operator<<(const bigint &shift) const {
 	bigint res(*this);
@@ -175,11 +177,11 @@ bool bigint::operator>(const bigint &other) const {
 }
 
 bool bigint::operator<=(const bigint &other) const {
-	int cmp = compare(other) <= 0;
+	return compare(other) <= 0;
 }
 
 bool bigint::operator>=(const bigint &other) const {
-	int cmp = compare(other) >= 0;
+	return compare(other) >= 0;
 }
 
 std::string bigint::getStr() const {
