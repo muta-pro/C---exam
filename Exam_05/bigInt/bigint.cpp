@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/04 17:10:26 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/04 21:08:41 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,13 @@ bigint &bigint::operator+=(const bigint &other) {
 		if (i < a.length()) {
 			digitA = a[i] - '0';
 		}
-	int digitB = 0;
-	if (i < b.length()) {
-		digitB = b[i] - '0';
-	}
-	int sum = digitA + digitB + carry;
-	res += char('0' + (sum % 10));//convert back to char
-	carry = sum / 10;
+		int digitB = 0;
+		if (i < b.length()) {
+			digitB = b[i] - '0';
+		}
+		int sum = digitA + digitB + carry;
+		res += char('0' + (sum % 10));//convert back to char
+		carry = sum / 10;
 	}
 	_n = reverse(res);
 	normalize();

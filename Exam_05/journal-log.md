@@ -1,4 +1,6 @@
-##SUBTYPE POLYMORPHISM - ABSTRACT CLASSES - INTERFACES - VIRTUAL BEHAVIOUR - INHERITANCE
+**POLYSET**
+
+# SUBTYPE POLYMORPHISM - ABSTRACT CLASSES - INTERFACES - VIRTUAL BEHAVIOUR - INHERITANCE
 
 2 LAYERS : from inheritance to composition.
 
@@ -36,25 +38,26 @@ Is-A and Has-A -> set can be passed to any function that expects normal bag.
 diamond problem : virtual inheritance
 
 
-concept: method overloading -> two insert methods
+## concept: method overloading # -> two insert methods
 
-concept: dynamic dispatch - runtime polymorpgism
+## concept: dynamic dispatch - runtime polymorpgism #
 
 Design pattern : how the obj is copied - assigned - compared (rule of 3)
 value semantics - copy-by-value -  obj represents a pure value;
  - indipendent memories;
  - equality based on state, not identity;
 
-## SYNTAX: bigint ##
-	string operationss
-	s.lenght() 			- get size
-	s[i] 				- access char
-	s += 'c' 			- append char
-	s.substr(start) 	- substr from start
-	s.substr(start, len)- substr with len
+**SYNTAX: bigint**
+
+	string operations
+	s.lenght() 				- get size
+	s[i] 						- access char
+	s += 'c' 				- append char
+	s.substr(start) 		- substr from start
+	s.substr(start, len)	- substr with len
 
 	char-int
-	'3' - '0' = 3 		- char to int
+	'3' - '0' = 3 			- char to int
 	char('0' + 3) = '3'	- int to char
 
 	loops
@@ -66,7 +69,7 @@ value semantics - copy-by-value -  obj represents a pure value;
 	return *this 		- ref to modified obj
 
 
-stirng class -> basic_string - generalized template uses char: all methods operate
+## stirng class -> basic_string - generalized template uses char: all methods operate
 in terms of bytes. 
 it has member funcitons: 
 	- iterators
