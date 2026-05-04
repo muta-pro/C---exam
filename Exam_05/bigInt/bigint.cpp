@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/03 19:41:35 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/04 17:10:26 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ bigint &bigint::operator=(const bigint &assign) {
 }
 
 bigint::~bigint() {}
+
 //convert string to number
 std::size_t bigint::to_size_t() const {
 	std::size_t val = 0;
@@ -89,7 +90,7 @@ bigint &bigint::operator+=(const bigint &other) {
 	std::string res = "";
 	int carry = 0;
 	std::size_t max_len = a.length();
-
+	
 	if (b.length() > max_len) {
 		max_len = b.length();
 	}
@@ -103,7 +104,7 @@ bigint &bigint::operator+=(const bigint &other) {
 		digitB = b[i] - '0';
 	}
 	int sum = digitA + digitB + carry;
-	res += char('0' + (sum % 10));
+	res += char('0' + (sum % 10));//convert back to char
 	carry = sum / 10;
 	}
 	_n = reverse(res);

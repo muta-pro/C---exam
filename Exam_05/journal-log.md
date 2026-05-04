@@ -45,7 +45,7 @@ value semantics - copy-by-value -  obj represents a pure value;
  - indipendent memories;
  - equality based on state, not identity;
 
-## SYNTAX: ##
+## SYNTAX: bigint ##
 	string operationss
 	s.lenght() 			- get size
 	s[i] 				- access char
@@ -64,5 +64,36 @@ value semantics - copy-by-value -  obj represents a pure value;
 
 	chaining
 	return *this 		- ref to modified obj
- 
 
+
+stirng class -> basic_string - generalized template uses char: all methods operate
+in terms of bytes. 
+it has member funcitons: 
+	- iterators
+	- capacity
+	- element access
+	- modifiers
+	- string operations
+it has member const - npos(max size_t value)
+it has non-member func overloads
+size_t -> unsigned int type able to represent any obj in bytes (sizes and counts)
+#include <cstddef>
+
+1. REVERSE → PROCESS → REVERSE BACK
+   This pattern lets us work left-to-right in code
+   while doing right-to-left addition conceptually
+ 
+2. CARRY IS CRUCIAL
+   The carry propagates through the entire number
+   Must check "carry > 0" to catch final carry
+ 
+3. HANDLE DIFFERENT LENGTHS
+   Use 0 for missing digits when one number is shorter
+ 
+4. MODULO AND DIVISION
+   % 10 extracts ones digit
+   / 10 extracts carry
+ 
+5. CHARACTER ARITHMETIC
+   - '0' converts int→char
+   + '0' converts char→int
