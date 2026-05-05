@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/04 21:08:41 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/05 15:47:34 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ std::size_t bigint::to_size_t() const {
 //remove leading zeros
 void bigint::normalize() {
 	std::size_t pos = 0;
-	while (pos < _n.length() - 1 && _n[pos] == '0') {
+	while (pos < _n.length() - 1 && _n[pos] == '0') { //mistake "for"
 		pos++;//keep at least one digit
 	}
 	if (pos > 0) {
@@ -68,12 +68,12 @@ void bigint::normalize() {
 }
 
 int bigint::compare(const bigint &other) const {
-	if (_n.length() < other._n.length()) {
+	if (_n.length() < other._n.length()) 
 		return -1;
-	}
-	if (_n.length() > other._n.length()) {
+
+	if (_n.length() > other._n.length()) 
 		return 1;
-	}
+
 	for (std::size_t i = 0; i < _n.length(); i++) {
 		if (_n[i] < other._n[i])
 			return -1;
@@ -145,7 +145,7 @@ bigint bigint::operator<<(const bigint &shift) const {
 
 bigint &bigint::operator>>=(const bigint &shift) {
 	std::size_t s = shift.to_size_t();
-	if (s >= _n.length()) {
+	if (s >= _n.length()) { //mistake >
 		_n = "0";
 		return *this;
 	}
