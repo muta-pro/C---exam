@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 16:06:16 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/06 19:18:19 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:31:20 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	width_len(char *buf)
 int	valid_map(char *buf)
 {
 	int	w;
-	int other_w;
+	int	other_w;
 	int	i;
 
 	w = width_len(buf);
@@ -49,7 +49,7 @@ int	valid_map(char *buf)
 		else if (buf[i] != 'X' && buf[i] != '.')
 			return (0);
 		else
-		 other_w++;
+			other_w++;
 		i++;
 	}
 	if (other_w != 0 && other_w != w)
