@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 16:06:16 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/05 17:29:24 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:18:19 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	width_len(char *buf)
 int	valid_map(char *buf)
 {
 	int	w;
-	int	len;
+	int other_w;
 	int	i;
 
 	w = width_len(buf);
-	len = 0;
+	other_w = 0;
 	i = 0;
 	if (w == 0)
 		return (0);
@@ -42,17 +42,17 @@ int	valid_map(char *buf)
 	{
 		if (buf[i] == '\n')
 		{
-			if (len != w)
+			if (other_w != w)
 				return (0);
-			len = 0;
+			other_w = 0;
 		}
 		else if (buf[i] != 'X' && buf[i] != '.')
 			return (0);
 		else
-			len++;
+		 other_w++;
 		i++;
 	}
-	if (len != 0 && len != w)
+	if (other_w != 0 && other_w != w)
 		return (0);
 	return (1);
 }
@@ -66,7 +66,7 @@ int	floodfill(char *buf, int i, int w, int bytes)
 		return (0);
 	buf[i] = 'V';
 	size = 1;
-	if (i + 1 > 0 && buf[i + 1] != '\n')
+	if (i + 1 < bytes && buf[i + 1] != '\n')
 		size += floodfill(buf, i + 1, w, bytes);
 	if (i > 0 && buf[i - 1] != '\n')
 		size += floodfill(buf, i - 1, w, bytes);
