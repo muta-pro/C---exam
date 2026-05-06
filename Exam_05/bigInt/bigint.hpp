@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/29 03:57:33 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/01 12:41:30 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/06 22:36:37 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ public:
 	bigint &operator++();
 	bigint operator++(int);
 //decimal digit shift
-	bigint &operator<<=(const bigint &other); 
-	bigint &operator>>=(const bigint &other);
-	bigint operator<<(const bigint &other) const;
-	bigint operator>>(const bigint &other) const;
+	bigint &operator<<=(const bigint &shift); 
+	bigint &operator>>=(const bigint &shift);
+	bigint operator<<(const bigint &shift) const;
+	bigint operator>>(const bigint &shift) const;
 	
 	bool operator==(const bigint &other) const;
 	

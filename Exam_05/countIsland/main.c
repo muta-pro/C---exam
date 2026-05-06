@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 21:48:07 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/06 19:54:15 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/06 21:08:48 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	valid_map(char *buf)
 		i++;
 	}
 	if (len != 0)
-		return (len == w ? 1 : 0);
+		return (len != 0 && len != w);
 	return (1);
 }
 
