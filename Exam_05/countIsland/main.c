@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 21:48:07 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/05 22:43:53 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/05 22:44:39 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #define BUF 2000
 
-int width_len(char *buf)
+int	width_len(char *buf)
 {
 	int	i;
 
@@ -100,7 +100,7 @@ int	main(int arc, char *argv[])
 
 	if (arc != 2)
 		return (0);
-	fd = open(argv[1],  O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
 		return (write(1, "\n", 1), 1);
 	buf = malloc(BUF);
