@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/05 21:48:07 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/05 22:44:39 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/06 19:54:15 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	valid_map(char *buf)
 
 void	floodfill(char *buf, int i, int w, char island, int bytes)
 {
-	if (i < 0 || buf[i] == '\0' || buf[i] != 'X')
+	if (i < 0 || i >= bytes || buf[i] != 'X')
 		return ;
 	buf[i] = island;
 	if (i + 1 < bytes && buf[i + 1] != '\n')
@@ -67,7 +67,7 @@ void	floodfill(char *buf, int i, int w, char island, int bytes)
 		floodfill(buf, i - 1, w, island, bytes);
 	if (i + w + 1 < bytes)
 		floodfill(buf, i + w + 1, w, island, bytes);
-	if (i - w - 1 < bytes)
+	if (i - w - 1 >= 0)
 		floodfill(buf, i - w - 1, w, island, bytes);
 }
 
