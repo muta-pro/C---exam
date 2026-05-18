@@ -6,7 +6,7 @@
 /*   By: imutavdz <imutavdz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/06 22:52:17 by imutavdz          #+#    #+#             */
-/*   Updated: 2026/05/14 19:58:25 by imutavdz         ###   ########.fr       */
+/*   Updated: 2026/05/15 14:44:33 by imutavdz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIFE_H
@@ -27,7 +27,7 @@ char	**alloc_board(int w, int h);
 void	fill_board(t_life *g);
 int		count_neighbors(t_life *g, int row, int col);
 int		next_gen(t_life *g);
-void	print_board(t_life *game);
-void	free_board(t_life *game);
+void	print_board(t_life *g);
+void	free_board(char **board, int h);
 
 #endif
